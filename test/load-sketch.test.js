@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const { resolve } = require('path');
 const fs = require('fs');
-const loadSketch = require('../src/load-sketch');
+const loadSketch = require('../lib/load-sketch');
 
 const path = resolve(__dirname, './test.sketch');
 

@@ -3,8 +3,8 @@
 const fs = require('fs');
 const { extname } = require('path');
 const JSZip = require('jszip');
-const loadSketch = require('./src/load-sketch');
-const {getLayersByClass, getStylesByAny} = require('./src/helper');
+const loadSketch = require('./lib/load-sketch');
+const {getLayersByClass, getStylesByAny} = require('./lib/helper');
 
 const SKETCH_CLASS_KEYS = {
   'layers': ['page', 'artboard', 'shapeGroup', 'rectangle'],
