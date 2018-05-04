@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "test": "mocha",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "lint": "eslint ./**/*.js"
   },
   "lint-staged": {
     "*.js": [
