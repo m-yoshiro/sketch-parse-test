@@ -46,17 +46,15 @@ class SketchParser {
     return _data.get(this).keys();
   }
 
-  get(filename) {
+  getByFilename(filename) {
     return _data.get(this).get(filename);
   }
 
-  // Getting property by Filetype
-
-  document() {
+  getDocument() {
     return this.get('meta.json');
   }
 
-  pages() {
+  getPages() {
     const pageIds = Object.keys(this.getMetaProperties('pagesAndArtboards'));
     const _pages = {};
 
@@ -68,17 +66,15 @@ class SketchParser {
     return _pages;
   }
 
-  user() {
+  getUser() {
     return this.get('user.json');
   }
 
-  meta() {
+  getMeta() {
     return this.get('meta.json');
   }
 
-  // Utility
-
-  getLayersByClass() {
+  getLayersByClassname() {
     return getLayersByClass;
   }
 
