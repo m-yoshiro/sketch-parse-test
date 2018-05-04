@@ -2,20 +2,18 @@
 
 const fs = require('fs');
 const { extname } = require('path');
-const JSZip = require('jszip');
 const loadSketch = require('./lib/load-sketch');
-const {getLayersByClass, getStylesByAny} = require('./lib/helper');
+const { getLayersByClass } = require('./lib/helper');
 
-const SKETCH_CLASS_KEYS = {
-  'layers': ['page', 'artboard', 'shapeGroup', 'rectangle'],
-  'frame': ['rect'],
-  'style': ['style']
-};
+// const SKETCH_CLASS_KEYS = {
+//   layers: ['page', 'artboard', 'shapeGroup', 'rectangle'],
+//   frame: ['rect'],
+//   style: ['style']
+// };
 
 const _data = new WeakMap();
 
 class SketchParser {
-
   constructor() {
     _data.set(this, {});
   }
@@ -28,7 +26,9 @@ class SketchParser {
     }
 
     fs.readFile(path, (err, data) => {
-      if (err) { throw err; }
+      if (err) {
+        throw err;
+      }
       parser._loadSketch(data);
     });
   }
@@ -55,7 +55,7 @@ class SketchParser {
     const pageIds = Object.keys(this.getMetaProperties('pagesAndArtboards'));
     const _pages = {};
 
-    pageIds.forEach( (id) => {
+    pageIds.forEach(id => {
       const key = `pages/${id}.json`;
       _pages[key] = this.get(key);
     }, this);
@@ -80,7 +80,7 @@ class SketchParser {
   // Private methods
 
   _loadSketch(file) {
-    loadSketch(file).then( (data) => {
+    loadSketch(file).then(data => {
       _data.set(this, data);
     });
   }
