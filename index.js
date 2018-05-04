@@ -4,6 +4,7 @@ const fs = require('fs');
 const { extname } = require('path');
 const loadSketch = require('./lib/load-sketch');
 const { getLayersByClass } = require('./lib/helper');
+const map2Obj = require('./lib/map2Obj');
 
 // const SKETCH_CLASS_KEYS = {
 //   layers: ['page', 'artboard', 'shapeGroup', 'rectangle'],
@@ -34,7 +35,11 @@ class SketchParser {
   }
 
   toString() {
-    return _data.get(this);
+    return map2Obj(_data.get(this));
+  }
+
+  toJson() {
+    return JSON.stringify(map2Obj(_data.get(this)));
   }
 
   filenames() {
