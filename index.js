@@ -11,13 +11,7 @@ const Sketch = require('./lib/sketch');
 //   style: ['style']
 // };
 
-const _data = new WeakMap();
-
 class SketchParser {
-  constructor() {
-    _data.set(this, {});
-  }
-
   loadSketch(path) {
     if (extname(path) !== '.sketch') {
       throw new Error('File must be a sketch file.');
@@ -33,18 +27,6 @@ class SketchParser {
     });
 
     return Sketch;
-  }
-
-  filenames() {
-    return _data.get(this).keys();
-  }
-
-  // Private methods
-
-  _loadSketch(file) {
-    loadSketch(file).then(data => {
-      Sketch.setSketchData(data);
-    });
   }
 }
 
