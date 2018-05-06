@@ -3,7 +3,7 @@
 const fs = require('fs');
 const { extname } = require('path');
 const loadSketch = require('./lib/load-sketch');
-const Sketch = require('./lib/sketch');
+const Sketch = require('./lib/sketch').create();
 
 const loadFile = function(path) {
   if (extname(path) !== '.sketch') {
