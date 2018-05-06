@@ -15,7 +15,7 @@ const loadFile = function(path) {
       throw err;
     }
     loadSketch(data).then(data => {
-      return Sketch.setSketchData(data);
+      return Sketch.load(data);
     });
   });
 
